@@ -6,9 +6,9 @@ import matplotlib.pyplot as plt
 import matplotlib.patches
 import matplotlib.path
 
-it_cnt = 1000000
+it_cnt = 10000
 tao = 0.01
-Ax, Bx, Ay, By, C = -0.353, 0.353, 0.3 - 0.15, 0.3 - 0.15, 3.0 * np.pi / 8.0
+Ax, Bx, Ay, By, C = -0.353, 0.353, 0.3, 0.3, 3.0 * np.pi / 8.0
 x = np.array([1.0, 1.0, 1.0, 1.0, 1.0])
 for i in range(it_cnt):
   x -= np.array([x[0] + x[2] * cos(3.0 * np.pi / 2.0 - x[3]) - Ax,
@@ -16,7 +16,6 @@ for i in range(it_cnt):
                  x[2] + x[2] * sin(3.0 * np.pi / 2.0 - x[3]) - Ay,
                  (x[3] + x[4]) * x[2] + (x[1] - x[0]) - C,
                  x[2] + x[2] * sin(3.0 * np.pi / 2.0 + x[4]) - By]) * tao
-
 print(x)
 plt.grid()
 plt.xlim(-1, 1)
